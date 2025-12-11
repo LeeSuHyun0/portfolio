@@ -135,11 +135,8 @@ export default function Experience() {
                           {edu.period}
                         </span>
                       </div>
-                      <p className="text-secondary font-medium mb-2">
+                      <p className="text-secondary font-medium">
                         {edu.school}
-                      </p>
-                      <p className="text-sm text-secondary/80">
-                        {edu.description}
                       </p>
                     </div>
                   </motion.div>
