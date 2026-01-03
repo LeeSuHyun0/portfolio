@@ -1,46 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/data/portfolio";
-
-function getTechIconUrl(tech: string): string {
-  const techMap: Record<string, string> = {
-    react: "react/react-original",
-    "React": "react/react-original",
-    javascript: "javascript/javascript-original",
-    "JavaScript": "javascript/javascript-original",
-    typescript: "typescript/typescript-original",
-    "TypeScript": "typescript/typescript-original",
-    python: "python/python-original",
-    "Python": "python/python-original",
-    springboot: "spring/spring-original",
-    "SpringBoot": "spring/spring-original",
-    "Spring Boot": "spring/spring-original",
-    java: "java/java-original",
-    "Java": "java/java-original",
-    nextjs: "nextjs/nextjs-original",
-    "Next.js": "nextjs/nextjs-original",
-    nodejs: "nodejs/nodejs-original",
-    "Node.js": "nodejs/nodejs-original",
-    tailwindcss: "tailwindcss/tailwindcss-original",
-    "Tailwind CSS": "tailwindcss/tailwindcss-original",
-    mysql: "mysql/mysql-original",
-    "MySQL": "mysql/mysql-original",
-    postgresql: "postgresql/postgresql-original",
-    "PostgreSQL": "postgresql/postgresql-original",
-    "Vite": "vitejs/vitejs-original",
-    "Axios": "axios/axios-plain",
-  };
-
-  const iconPath = techMap[tech];
-  if (iconPath) {
-    return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${iconPath}.svg`;
-  }
-  return "";
-}
+import { getTechIconUrl } from "@/utils/techIcons";
 
 interface ProjectDetail {
   title: string;
@@ -52,7 +17,6 @@ interface Project {
   title: string;
   subtitle?: string;
   description: string;
-  image: string;
   technologies: string[];
   techStack?: {
     Frontend?: string[];
@@ -62,7 +26,6 @@ interface Project {
   team?: string;
   period?: string;
   githubUrl: string;
-  featured: boolean;
   details?: ProjectDetail[];
 }
 
@@ -83,9 +46,14 @@ function ProjectCard({ project, onClick }: ProjectCardProps) {
       }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
-      <h3 className="text-lg font-semibold mb-1 group-hover:text-primary transition-colors">
-        {project.title}
-      </h3>
+      <div className="flex items-center justify-between gap-2 mb-1">
+        <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
+          {project.title}
+        </h3>
+        <span className="text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0">
+          →
+        </span>
+      </div>
       {project.subtitle && (
         <p className="text-xs text-accent mb-2">{project.subtitle}</p>
       )}
@@ -200,10 +168,10 @@ function ProjectModal({ project, onClose }: ProjectModalProps) {
                 transition={{ delay: 0.15 }}
               >
                 <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-4">기술 스택</h4>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {Object.entries(project.techStack).map(([category, techs]) => (
-                    <div key={category} className="flex items-start gap-3">
-                      <span className="text-sm font-bold text-gray-700 min-w-[70px] py-1.5">{category}</span>
+                    <div key={category} className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-3">
+                      <span className="text-sm font-bold text-gray-700 sm:min-w-[70px] py-1 sm:py-1.5">{category}</span>
                       <div className="flex flex-wrap gap-2">
                         {techs.map((tech) => {
                           const iconUrl = getTechIconUrl(tech);
@@ -329,6 +297,17 @@ function ProjectModal({ project, onClose }: ProjectModalProps) {
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedProject]);
 
   return (
     <section id="projects" className="py-24">

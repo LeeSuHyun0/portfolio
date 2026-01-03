@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "이수현 - 프론트엔드 개발자",
+  title: "SUHYUN'S WEB-PORTFOLIO",
   description: "프론트엔드 개발자 이수현입니다.",
 };
 

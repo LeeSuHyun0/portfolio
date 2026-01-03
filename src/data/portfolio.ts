@@ -1,5 +1,3 @@
-// 포트폴리오 데이터
-
 export const personalInfo = {
   name: "Lee Su Hyun",
   title: "신입 프론트엔드 개발자",
@@ -45,8 +43,7 @@ export const projects = [
       title: "DreamPath",
       subtitle: "통합형 진로 분석 플랫폼",
       description: "AI 기반 사용자 성향 데이터 분석 및 커리어 패스 제안 통합 진로 분석 플랫폼",
-      image: "",
-      technologies: ["React", "TypeScript", "Spring Boot", "OpenAI API", "RAG"],
+      technologies: ["React", "TypeScript", "python", "Spring Boot", "OpenAI API", "RAG"],
       techStack: {
         Frontend: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Router", "Axios"],
         Backend: ["Python", "Spring Boot"],
@@ -55,7 +52,6 @@ export const projects = [
       team: "4명",
       period: "2025.11.13 ~ 12.19",
       githubUrl: "https://github.com/team-gbbd/DreamPath.git",
-      featured: true,
       details: [
         {
           title: "서비스 전체 프론트엔드 통합",
@@ -85,7 +81,6 @@ export const projects = [
     title: "딥딥빵빵 (DDBB)",
     subtitle: "AI 스마트 베이커리 POS",
     description: "AI 이미지 인식 기반 빵 자동 결제 및 매출/재고 분석 통합 POS 시스템",
-    image: "",
     technologies: ["React", "TypeScript", "Zustand", "Chart.js"],
     techStack: {
       Frontend: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Router", "Axios", "Zustand", "Framer Motion", "Chart.js"],
@@ -93,7 +88,6 @@ export const projects = [
     team: "5명",
     period: "2025.10.27 ~ 11.10",
     githubUrl: "https://github.com/team-gbbd/ddbb.git",
-    featured: true,
     details: [
       {
         title: "POS 서비스 전체 프론트엔드 개발",
@@ -124,7 +118,6 @@ export const projects = [
       title: "CareerFit",
       subtitle: "취업 컨설팅 화상면접 플랫폼",
       description: "AI 자소서 첨삭, 1:1 화상면접 컨설팅, 면접 연습 녹화 기능 제공 취업 지원 플랫폼",
-      image: "",
       technologies: ["React", "OpenVidu", "PortOne"],
       techStack: {
         Frontend: ["React", "React Router", "Axios", "OpenVidu", "PortOne", "Vite"],
@@ -132,7 +125,6 @@ export const projects = [
       team: "5명",
       period: "2025.08.11 ~ 09.30",
       githubUrl: "https://github.com/mic-project/mic-project.git",
-      featured: true,
       details: [
         {
           title: "전체 프론트엔드 아키텍처 설계",
@@ -177,15 +169,13 @@ export const projects = [
     title: "닥큐 (DocQ)",
     subtitle: "실시간 병원 예약 및 리뷰 플랫폼",
     description: "병원 예약 및 리뷰 시스템 지원 플랫폼",
-    image: "",
-    technologies: ["React", "Vite", "Axios", "React Router"],
+    technologies: ["React", "Vite", "React Router", "Axios"],
     techStack: {
       Frontend: ["React", "Vite", "React Router", "Axios"],
     },
     team: "5명",
     period: "2025.06.19 ~ 07.28",
     githubUrl: "https://github.com/mic-project/hospitalreservation.git",
-    featured: true,
     details: [
       {
         title: "전체 프론트엔드 개발",
@@ -268,7 +258,7 @@ export const blogPosts = [
     id: 1,
     title: "React?",
     excerpt: "React에 관련된 모든 것을 배워봅시다!",
-    tags: ["기술블로그", "React"],
+    tags: ["React"],
     url: "https://www.notion.so/React-1c286f02afa480149ccbc479c26e5fbf?source=copy_link",
   },
 ];

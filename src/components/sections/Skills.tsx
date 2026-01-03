@@ -2,42 +2,7 @@
 
 import Image from "next/image";
 import { skills } from "@/data/portfolio";
-
-function getIconUrl(icon: string): string {
-  const deviconMap: Record<string, string> = {
-    react: "react/react-original",
-    nextjs: "nextjs/nextjs-original",
-    typescript: "typescript/typescript-original",
-    javascript: "javascript/javascript-original",
-    html5: "html5/html5-original",
-    tailwindcss: "tailwindcss/tailwindcss-original",
-    java: "java/java-original",
-    spring: "spring/spring-original",
-    nodejs: "nodejs/nodejs-original",
-    python: "python/python-original",
-    mysql: "mysql/mysql-original",
-    postgresql: "postgresql/postgresql-original",
-    git: "git/git-original",
-    github: "github/github-original",
-    docker: "docker/docker-original",
-  };
-
-  const simpleIconsMap: Record<string, string> = {
-    supabase: "supabase",
-    vercel: "vercel",
-  };
-
-  if (deviconMap[icon]) {
-    return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${deviconMap[icon]}.svg`;
-  }
-  if (simpleIconsMap[icon]) {
-    return `https://cdn.simpleicons.org/${simpleIconsMap[icon]}`;
-  }
-  if (icon === "rag" || icon === "openai" || icon === "pinecone") {
-    return "";
-  }
-  return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon}.svg`;
-}
+import { getTechIconUrl } from "@/utils/techIcons";
 
 interface SkillCategoryProps {
   title: string;
@@ -53,13 +18,13 @@ function SkillCategory({ title, skills, color }: SkillCategoryProps) {
         <h4 className="text-xl font-bold">{title}</h4>
         <div className="flex-1 h-px opacity-30" style={{ backgroundColor: color }} />
       </div>
-      <div className="flex flex-wrap gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {skills.map((skill) => {
-          const iconUrl = getIconUrl(skill.icon);
+          const iconUrl = getTechIconUrl(skill.icon);
           return (
             <div
               key={skill.name}
-              className="glass-card w-[140px] h-[130px] p-4 flex flex-col items-center justify-center gap-3 cursor-pointer group hover:shadow-lg transition-all duration-200"
+              className="glass-card min-h-[120px] p-4 flex flex-col items-center justify-center gap-3 cursor-default group hover:shadow-lg transition-all duration-200"
             >
               {iconUrl && (
                 <div className="w-14 h-14 relative">

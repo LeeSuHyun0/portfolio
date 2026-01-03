@@ -31,7 +31,7 @@ export default function Experience() {
                 return (
                   <motion.div
                     key={edu.id}
-                    className="p-4 bg-card-bg/80 backdrop-blur-sm border border-card-border rounded-lg cursor-pointer"
+                    className="p-4 bg-card-bg/80 backdrop-blur-sm border border-card-border rounded-lg"
                     whileHover={{
                       y: -4,
                       boxShadow: "0 10px 40px -10px rgba(139, 92, 246, 0.3)",
@@ -39,7 +39,7 @@ export default function Experience() {
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    <div className="flex justify-between items-start mb-1">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 mb-1">
                       <h4 className="font-medium">{edu.degree}</h4>
                       <span className="text-xs text-accent">{edu.period}</span>
                     </div>
@@ -48,7 +48,7 @@ export default function Experience() {
                       <>
                         <button
                           onClick={() => toggleOpen(edu.id)}
-                          className="text-xs text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
+                          className="text-xs text-primary hover:text-primary/80 transition-colors flex items-center gap-1 cursor-pointer"
                         >
                           <motion.span
                             animate={{ rotate: isOpen ? 180 : 0 }}
@@ -97,7 +97,7 @@ export default function Experience() {
                 return (
                   <motion.div
                     key={exp.id}
-                    className="p-4 bg-card-bg/80 backdrop-blur-sm border border-card-border rounded-lg cursor-pointer"
+                    className="p-4 bg-card-bg/80 backdrop-blur-sm border border-card-border rounded-lg"
                     whileHover={{
                       y: -4,
                       boxShadow: "0 10px 40px -10px rgba(139, 92, 246, 0.3)",
@@ -105,14 +105,14 @@ export default function Experience() {
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    <div className="flex justify-between items-start mb-1">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 mb-1">
                       <h4 className="font-medium">{exp.position}</h4>
                       <span className="text-xs text-accent">{exp.period}</span>
                     </div>
                     <p className="text-sm text-secondary mb-2">{exp.company}</p>
                     <button
                       onClick={() => toggleOpen(exp.id + 1000)}
-                      className="text-xs text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
+                      className="text-xs text-primary hover:text-primary/80 transition-colors flex items-center gap-1 cursor-pointer"
                     >
                       <motion.span
                         animate={{ rotate: isOpen ? 180 : 0 }}

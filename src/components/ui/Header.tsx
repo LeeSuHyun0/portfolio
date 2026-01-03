@@ -2,7 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { navLinks, personalInfo } from "@/data/portfolio";
+import { navLinks } from "@/data/portfolio";
+
+function Logo() {
+  return (
+    <svg viewBox="0 0 100 100" className="w-14 h-14">
+      <text x="50%" y="50%" dominantBaseline="central" textAnchor="middle" fill="currentColor" fontFamily="sans-serif" fontWeight="bold" fontSize="32">{"<SH/>"}</text>
+    </svg>
+  );
+}
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,8 +19,8 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm">
       <nav className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="text-base font-bold tracking-wide uppercase text-foreground hover:text-primary transition-colors">
-            {personalInfo.name}
+          <Link href="/" className="text-foreground hover:text-primary transition-colors">
+            <Logo />
           </Link>
 
           {/* Desktop Navigation */}
