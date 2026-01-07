@@ -116,7 +116,7 @@ export const projects = [
   {
       id: 3,
       title: "CareerFit",
-      subtitle: "취업 컨설팅 화상면접 플랫폼",
+      subtitle: "취업 컨설팅 플랫폼",
       description: "AI 자소서 첨삭, 1:1 화상면접 컨설팅, 면접 연습 녹화 기능 제공 취업 지원 플랫폼",
       technologies: ["React", "OpenVidu", "PortOne"],
       techStack: {
